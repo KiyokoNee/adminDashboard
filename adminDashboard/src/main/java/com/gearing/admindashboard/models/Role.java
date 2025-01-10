@@ -39,7 +39,6 @@ public class Role {
 	
 	// Entity Relationships (if applicable)
 	@ManyToMany(fetch = FetchType.EAGER)
-	@Cascade({CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinTable(
 			name = "users_roles",
 			joinColumns = @JoinColumn(name = "role_id"),

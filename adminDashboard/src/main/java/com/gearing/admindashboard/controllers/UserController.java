@@ -136,7 +136,7 @@ public class UserController {
 		
 		// Make sure we aren't doing anything crazy if the user is null
 		if(user != null)
-			userServ.deleteUserById(userId);
+			userServ.deleteUser(user);
 		
 		return "redirect:/admin";
 	}

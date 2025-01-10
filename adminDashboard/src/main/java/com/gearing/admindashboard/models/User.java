@@ -55,7 +55,6 @@ public class User {
 	private String confirm;// Entity Relationships (if applicable)
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@Cascade({CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinTable(
 		name = "users_roles",
 		joinColumns = @JoinColumn(name = "user_id"),

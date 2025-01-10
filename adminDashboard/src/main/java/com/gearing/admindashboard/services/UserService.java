@@ -44,9 +44,7 @@ public class UserService {
 	}
 	
 	// Make sure you clear connected relationships before you delete!
-	public void deleteUserById(Long userId) {
-		User user = findById(userId);
-		
+	public void deleteUser(User user) {
 		userRepo.delete(user);
 	}
 	
