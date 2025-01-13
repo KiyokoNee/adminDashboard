@@ -128,15 +128,11 @@ public class UserController {
 		return "redirect:/admin";
 	}
 	
-	@DeleteMapping("/admin/{userId}")
+	@PutMapping("/delete/{userId}")
 	public String delete(Principal principal, Model model, @PathVariable Long userId) {
 		if(principal == null)
 			return "redirect:/login";
-		User user = userServ.findById(userId);
-		
-		// Make sure we aren't doing anything crazy if the user is null
-		if(user != null)
-			userServ.deleteUser(user);
+		userServ.deleteUserById(userId);
 		
 		return "redirect:/admin";
 	}

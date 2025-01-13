@@ -43,8 +43,8 @@
 								<c:when test="${user.roles[0].name == 'ROLE_ADMIN'}">
 									<c:choose>
 										<c:when test="${currentuser.roles[0].name == 'ROLE_SUPER_ADMIN' }">
-											<form method="post" action="/admin/${user.id}" >
-												<input type="hidden" name="_method" value="delete" />
+											<form method="post" action="/delete/${user.id}" >
+												<input type="hidden" name="_method" value="put" />
         										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 												<button class="btn btn-link" type="submit">Delete Admin</button>
 											</form>
@@ -63,8 +63,8 @@
         								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 										<button class="btn btn-link" type="submit">Make Admin</button>
 									</form>
-									<form method="post" action="/admin/${user.id}" >
-										<input type="hidden" name="_method" value="delete" />
+									<form method="post" action="/delete/${user.id}" >
+										<input type="hidden" name="_method" value="put" />
         								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 										<button class="btn btn-link" type="submit">Delete User</button>
 									</form>

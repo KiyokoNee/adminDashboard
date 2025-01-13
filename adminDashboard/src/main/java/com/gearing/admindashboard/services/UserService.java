@@ -43,9 +43,11 @@ public class UserService {
 		userRepo.save(user);
 	}
 	
-	// Make sure you clear connected relationships before you delete!
-	public void deleteUser(User user) {
-		userRepo.delete(user);
+	// TODO: for some reason calling delete causes a TransientObjectException
+	public void deleteUserById(Long id) {
+		// Testing that we get to this point
+		System.out.println("got here");
+		userRepo.deleteById(id);
 	}
 	
 	public User findByUsername(String username) {
