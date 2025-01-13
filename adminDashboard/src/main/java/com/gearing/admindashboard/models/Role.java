@@ -3,8 +3,6 @@ package com.gearing.admindashboard.models;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;

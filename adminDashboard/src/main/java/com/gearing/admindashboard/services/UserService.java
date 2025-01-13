@@ -19,7 +19,8 @@ public class UserService {
 	private UserRepository userRepo;
 	@Autowired
 	private RoleRepository roleRepo;
-	@Autowired BCryptPasswordEncoder bCryptPassEncoder;
+	@Autowired
+	BCryptPasswordEncoder bCryptPassEncoder;
 	
 	public List<User> getAll() {
 		return userRepo.findAll();

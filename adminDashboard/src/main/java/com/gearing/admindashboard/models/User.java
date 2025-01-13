@@ -3,10 +3,9 @@ package com.gearing.admindashboard.models;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -54,7 +53,7 @@ public class User {
 	@Transient
 	private String confirm;// Entity Relationships (if applicable)
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(
 		name = "users_roles",
 		joinColumns = @JoinColumn(name = "user_id"),
