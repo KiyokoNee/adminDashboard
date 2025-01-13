@@ -1,6 +1,7 @@
 package com.gearing.admindashboard.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.gearing.admindashboard.models.User;
 import com.gearing.admindashboard.repositories.RoleRepository;
 import com.gearing.admindashboard.repositories.UserRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class UserService {
@@ -45,9 +48,11 @@ public class UserService {
 	
 	// TODO: for some reason calling delete causes a TransientObjectException
 	public void deleteUserById(Long id) {
-		// Testing that we get to this point
-		System.out.println("got here");
-		userRepo.deleteById(id);
+		Optional<User> optionalUser = userRepo.findById(id);
+		if(optionalUser.isEmpty())
+			throw new EntityNotFoundException("User not found with id: " + id);
+		User user = optionalUser.get();
+		userRepo.delete(user);
 	}
 	
 	public User findByUsername(String username) {
