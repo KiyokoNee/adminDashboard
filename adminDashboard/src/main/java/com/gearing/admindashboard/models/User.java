@@ -51,8 +51,9 @@ public class User {
 	private String password;
 	
 	@Transient
-	private String confirm;// Entity Relationships (if applicable)
+	private String confirm;
 	
+	// Entity Relationships (if applicable)
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(
 		name = "users_roles",

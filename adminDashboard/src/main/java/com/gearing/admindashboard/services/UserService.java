@@ -53,6 +53,7 @@ public class UserService {
 		if(optionalUser.isEmpty())
 			throw new EntityNotFoundException("User not found with id: " + id);
 		User user = optionalUser.get();
+		user.getRoles().clear();
 		userRepo.delete(user);
 	}
 	
