@@ -49,7 +49,6 @@ public class UserService {
 		userRepo.save(user);
 	}
 	
-	// TODO: for some reason calling delete causes a TransientObjectException
 	public void deleteUserById(Long id) {
 		Optional<User> optionalUser = userRepo.findById(id);
 		// Check that user actually exists to begin with
