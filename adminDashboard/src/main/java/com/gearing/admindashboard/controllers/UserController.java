@@ -128,11 +128,11 @@ public class UserController {
 		return "redirect:/admin";
 	}
 	
-	@PutMapping("/delete/{userId}")
-	public String delete(Principal principal, Model model, @PathVariable Long userId) {
+	@PutMapping("/delete/{currentId}")
+	public String delete(Principal principal, Model model, @PathVariable Long currentId) {
 		if(principal == null)
 			return "redirect:/login";
-		userServ.deleteUserById(userId);
+		userServ.deleteUserById(currentId);
 		
 		return "redirect:/admin";
 	}
