@@ -61,8 +61,11 @@ public class UserService {
 		
 		// Create copy of Role list to prevent concurrent modification exception in enhanced for loop
 		List<Role> copyRoles = new ArrayList<>(user.getRoles());
+		
+		// Remove all links between users and roles
 		for(Role role: copyRoles) {
 			user.getRoles().remove(role);
+			role.getUsers().remove(user);
 		}
 		
 		// Delete the user, or so help me
